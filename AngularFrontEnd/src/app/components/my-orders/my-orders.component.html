@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row d-flex justify-content-center">
+
+    <div class="col-8 mt-3 mb-2 p-2 border-danger shadow" *ngFor="let myOrder of myOrderList" >
+      <div class="card">
+        <div class="row">
+          <div class="col-8">
+
+            <div class="title m-1">
+              <h5>{{ myOrder.item_name }}</h5>
+            </div>
+
+            <div class="dsc m-2">
+              <h6>{{ myOrder.item_dsc }}</h6>
+            </div>
+
+            <div class="price m-2">
+              <h6>Item Discount: {{ myOrder.item_discount }}%</h6>
+            </div>
+
+            <div class="price m-2">
+              <h6>Total Amount : ₹{{ myOrder.item_subtotal }}</h6>
+            </div>
+
+            <div class="btn" style="margin-top: 80px;">
+              <button class="btn btn-danger" (click)="cancelOrder(myOrder.id)">Cancel Order</button>
+            </div>
+
+            <div class="btn" style="margin-top: 80px;">
+              <button class="btn btn-dark">View order status</button>
+            </div>
+          </div>
+
+          <div class="col-4">
+            <img src="{{ myOrder.item_image}}" alt="" class="img-fluid" style="height: 250px; width: 280px;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

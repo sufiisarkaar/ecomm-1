@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="col-6 mt-5 mb-5">
+      <form [formGroup]="sellerAddProduct" (ngSubmit)="addProduct(sellerAddProduct.value)">
+
+        <div class="formInput mt-2 mb-2">
+          <label for="">Item Name</label>
+          <input type="text" formControlName="item_name" id="" class="form-control">
+        </div>
+
+        <div class="formInput mt-2 mb-2">
+          <label for="">Price</label>
+          <input type="text" formControlName="item_price" id="" class="form-control">
+        </div>
+
+        <div class="formInput mt-2 mb-2">
+          <label for="">Description</label>
+          <input type="text" formControlName="item_dsc" id="" class="form-control">
+        </div>
+
+        <div class="formInput mt-2 mb-2">
+          <label for="">Quantity</label>
+          <input type="number" formControlName="item_qty" id="" class="form-control">
+        </div>
+
+        <div class="formInput mt-2 mb-2">
+          <label for="">Image URL</label>
+          <input type="text" formControlName="item_image" id="" class="form-control">
+        </div>
+
+        <div class="formInput mt-2 mb-2">
+          <label for="">Discount</label>
+          <input type="number" formControlName="item_discount" id="" class="form-control">
+        </div>
+
+        <div class="loginBtn mt-4 d-flex justify-content-between">
+          <button class="btn btn-dark col-4 col-sm-4">Add Product</button>
+         
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

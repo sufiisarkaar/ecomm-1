@@ -1,0 +1,93 @@
+<div class="container mt-4">
+  <div class="row d-flex justify-content-center m-2">
+
+
+    <div class="col-6 col-sm-6 col-lg-3 mb-2 mt-2 p-1" *ngFor="let item of itemList">
+      <div class="card" style="height: 350px;">
+        <img src="{{ item.item_image }}" class="card-img-top img-fluid" alt="..." style="height: 200px;">
+        <div class="card-body text-center">
+          <h5 class="card-title">{{ item.item_name }}</h5>
+          <div class="content mt-1 mb-4" style="height: 20px;">
+
+            <p class="card-text mb-4 text-danger">Discount {{ item.item_discount }}%</p>
+          </div>
+          <div class="btnAdd d-flex justify-content-between" style="margin-top: 20px;">
+            <div class="aadto">
+              <a class="btn btn-dark" (click)="UpdatePro(item, UpdateProduct)">Edit Product</a>
+            </div>
+
+            <div class="price ">
+              <p class="text-success mt-2 m-1"> ₹ {{ item.item_price }}</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+</div>
+
+<ng-template #UpdateProduct>
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <div class="col-12 mt-5 mb-5">
+        <form [formGroup]="updateProduct">
+
+          <div class="formInput mt-2 mb-2">
+            <label for="">Item Name</label>
+            <input type="text" formControlName="item_name" id="" class="form-control" [value]="updateOBJ.item_name"
+              [(ngModel)]="updateOBJ.item_name">
+          </div>
+
+          <div class="formInput mt-2 mb-2">
+            <label for="">Price</label>
+            <input type="text" formControlName="item_price" id="" class="form-control" value="{{updateOBJ.item_price}}"
+              [(ngModel)]="updateOBJ.item_price">
+          </div>
+
+          <div class="formInput mt-2 mb-2">
+            <label for="">Description</label>
+            <input type="text" formControlName="item_dsc" id="" class="form-control" value="{{updateOBJ.item_dsc}}"
+              [(ngModel)]="updateOBJ.item_dsc">
+          </div>
+
+          <!-- <div class="formInput mt-2 mb-2">
+            <label for="">Quantity</label>
+            <input type="number" formControlName="item_qty" id="" class="form-control" value="{{updateOBJ.item_qty}}" [(ngModel)]="updateOBJ.item_qty" [disabled]="true">
+          </div> -->
+
+          <div class="formInput mt-2 mb-2">
+            <label for="">Image URL</label>
+            <input type="text" formControlName="item_image" id="" class="form-control" value="{{updateOBJ.item_image}}"
+              [(ngModel)]="updateOBJ.item_image">
+          </div>
+
+          <div class="formInput mt-2 mb-2">
+            <label for="">Discount</label>
+            <input type="number" formControlName="item_discount" id="" class="form-control"
+              value="{{updateOBJ.item_name}}" [(ngModel)]="updateOBJ.item_discount">
+          </div>
+
+
+<div class="row d-flex justify-content-between btnGroup">
+  <div class="loginBtn  col-4 col-sm-4 mt-4">
+    <button class="btn btn-dark " mat-dialog-close="" (click)="ProductUpdate(updateProduct.value)">Update Product</button>
+  </div>
+
+
+  <div class="loginBtn col-4 col-sm-4 mt-4">
+    <button class="btn btn-danger " mat-dialog-close="" (click)="deleteProduct()">Delete Product</button>
+  </div>
+</div>
+
+
+</form>
+
+      </div>
+    </div>
+  </div>
+
+</ng-template>

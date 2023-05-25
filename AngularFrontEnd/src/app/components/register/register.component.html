@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="col-6 mt-5 mb-5">
+      <form [formGroup]="userRegister" (ngSubmit)="register(userRegister.value)">
+
+        <div class="formInput mt-2 mb-2">
+          <label for="">Name</label>
+          <input type="text" formControlName="name" id="" class="form-control">
+        </div>
+
+        <div class="formInput mt-2 mb-2">
+          <label for="">Phone</label>
+          <input type="text" formControlName="phone" id="" class="form-control">
+        </div>
+
+        <div class="formInput mt-2 mb-2">
+          <label for="">Email</label>
+          <input type="email" formControlName="email" id="" class="form-control">
+        </div>
+
+        <div class="formInput mt-2 mb-2">
+          <label for="">Password</label>
+          <input type="password" formControlName="password" id="" class="form-control">
+        </div>
+
+        <div class="formInput mt-2 mb-2">
+          <label for="">Confirm Password</label>
+          <input type="password" formControlName="confirmPassword" id="" class="form-control">
+        </div>
+
+        <div class="loginBtn mt-4 d-flex justify-content-between">
+          <button class="btn btn-dark col-4 col-sm-4">Signup</button>
+          <p class="col-4 col-sm-6 float-right"> Have a Account? <a routerLink="/login">Login Here!</a></p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

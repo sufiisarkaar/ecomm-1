@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-lg sticky-top  " [ngStyle]="{'background-color': bgColor}">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink={{sellerActive}}>FoodCounter</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link active" aria-current="page" [routerLink]= "path">Home</a>
+        <a class="nav-link" *ngIf="!sellerActive" routerLink="cart">Cart({{ cartCount }})</a>
+        <a class="nav-link" *ngIf="sellerActive" routerLink="addProduct">Add Product</a>
+        <a class="nav-link"  routerLink="about">About</a>
+        <a class="nav-link" *ngIf="!sellerActive" routerLink="myOrder">My orders</a>
+        <a class="nav-link"  *ngIf="ActiveUser || sellerActive"  routerLink="profile">Profile</a>
+        <a class="nav-link" *ngIf="!sellerActive && !ActiveUser" routerLink="seller">Seller</a>
+
+        <a class="nav-link  " *ngIf="!ActiveUser && !sellerActive" routerLink="login">Login</a>
+        <a class="nav-link  " *ngIf="ActiveUser || sellerActive" (click)="logOut()" style="cursor: pointer;">Logout</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+

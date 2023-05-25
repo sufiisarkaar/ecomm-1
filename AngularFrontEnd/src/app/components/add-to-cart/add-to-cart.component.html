@@ -1,0 +1,62 @@
+<div class="container mt-4">
+  <div class="row d-flex justify-content-center">
+    <div class="contentCart d-flex " *ngFor="let cart of cartList">
+      <div class="col-12 col-sm-4 col-lg-4 content ">
+        <h4 class="mt-4 ">{{ cart.item_name }}</h4>
+
+        <p class="text-dark">
+          {{ cart.item_dsc }}
+        </p>
+      </div>
+
+      <div class="col-12 col-sm-4 col-lg-4  imageCart text-center">
+        <img src="{{ cart.item_image }}" alt="Image Not Found" class="img-fluid rounded-2"
+          style="height: 250px !important; width: 250px; " />
+
+        <div class="price  justify-content-center ">
+
+          <b class="mt-2">item-Total : <span class="text-success"> ₹ {{ cart.item_price*cart.item_qty }}</span></b>
+
+
+
+          <p class="text-danger mt-2">with subtract <b>discount {{ cart.item_discount }}%</b></p>
+
+          <b class="mt-2">Sub-Total : <span class="text-success">₹ {{ cart.item_subtotal }}</span></b>
+
+        </div>
+        <hr>
+      </div>
+
+      <div class="col-12 col-sm-4 col-lg-4  Quantity text-center mt-2">
+        <button class="btn btn-danger col-4" (click)="minusQuantity(cart, cart.id,cart.item_qty)">-</button>
+        <input type="text" name="quantity" class="form-input col-2 btn border-danger " value="{{ cart.item_qty }}"
+          disabled>
+        <button class="btn btn-danger col-4" (click)="plusQuantity(cart, cart.id,cart.item_qty)">+</button>
+
+        <div class="topic col-12 col-sm-12  mt-3 mb-3">
+          <small>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cupiditate maiores molestias ratione ducimus
+            dicta odio itaque corrupti. Velit tempora molestiae eos beatae, corporis, es nisi sequi eius eaque ratione
+            perferendis fuga! Obcaecati nam cupiditate molestiae, deleniti assumenda lapti. Velit tempora molestiae eos
+            beatae, corporis, es nisi sequi eius eaque ratione perferendis fuga! Obcaecati nam cupiditate molestiae,
+            deleniti assumenda lapti. Velit tempora molestiae eos beatae, corporis, es nisi sequi eius eaque ratione
+            perferendis fuga! Obcaecati nam cupiditate molestiae, deleniti assumenda la pti. Velit tempora molestiae eos
+            beatae, corporis, es nisi sequi eius eaque ratione perferendis fuga! Obcaecati nam cupiditate molestiae,
+            deleniti assumenda lapti. Velit tempora molestiae eos beatae, corporis, es nisi sequi eius eaque ratione
+            perferendis fuga! Obcaecati nam cupiditate molestiae, deleniti assumenda lapti. Velit tempora molestiae eos
+            beatae, corporis, es nisi sequi eius eaque ratione perferendis fuga! Obcaecati nam cupiditate molestiae,
+            deleniti assumenda laborum rem laudantium dolore ex possimus.</small>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="grandTotal text-center">
+      <b>Grand-Total : {{ grandTotal }}</b>
+    </div>
+    <div class="btnPlace mt-4 mb-2 col-12 col-sm-12 text-center">
+      <button class="btn btn-success btn-lg" (click)="placeOrder()">Place Order</button>
+    </div>
+  </div>
+</div>

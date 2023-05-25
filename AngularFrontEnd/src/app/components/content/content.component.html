@@ -1,0 +1,32 @@
+<div class="container mt-4">
+  <div class="row d-flex justify-content-center m-2">
+
+
+    <div class="col-6 col-sm-6 col-lg-3 mb-2 mt-2 p-1" *ngFor="let item of itemList">
+      <div class="card" style="height: 350px;">
+        <img src="{{ item.item_image }}" class="card-img-top img-fluid" alt="..." style="height: 200px;">
+        <div class="card-body text-center">
+          <h5 class="card-title">{{ item.item_name }}</h5>
+          <div class="content mt-1 mb-4" style="height: 20px;">
+
+            <p class="card-text mb-4 text-danger">Discount {{ item.item_discount }}%</p>
+          </div>
+          <div class="btnAdd d-flex justify-content-between" style="margin-top: 20px;">
+            <div class="aadto">
+              <a class="btn btn-success"
+                (click)="AddToCart(item)">{{ ActiveIdMulti?.includes(item.id)  ?   'Added' : 'Add To Cart' }}</a>
+            </div>
+
+            <div class="price ">
+              <p class="text-success mt-2 m-1"> ₹ {{ item.item_price }}</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+</div>
